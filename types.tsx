@@ -6,10 +6,11 @@
 import { BottomTabScreenProps } from '@react-navigation/bottom-tabs';
 import { CompositeScreenProps, NavigatorScreenParams } from '@react-navigation/native';
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
+import * as ENUMS from './typeEnums'
 
 declare global {
   namespace ReactNavigation {
-    interface RootParamList extends RootStackParamList {}
+    interface RootParamList extends RootStackParamList { }
   }
 }
 
@@ -23,6 +24,19 @@ export type User = {
   garmentsBorrowed: Number;
   garmentsSold: Number;
   garmentsBought: Number;
+};
+
+export type Clothing = {
+  id: Number;
+  sellerId: Number;
+  category: String;
+  offerType: ENUMS.ClothingOfferType;
+  color: Array<ENUMS.ClothingColor>;
+  size: ENUMS.ClothingSize | ENUMS.ClothingPantsSize;
+  description: String;
+  condition: ENUMS.ClothingCondition;
+  brand: String;
+  title: String;
 };
 
 export type RootStackParamList = {
@@ -40,6 +54,7 @@ export type RootTabParamList = {
   TabOne: undefined;
   TabTwo: undefined;
   TabThree: undefined;
+  TabFour: undefined;
   TabFive: undefined;
 };
 
