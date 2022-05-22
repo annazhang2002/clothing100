@@ -13,6 +13,18 @@ declare global {
   }
 }
 
+export type User = {
+  firstName: String;
+  lastName: String;
+  residentialCollege: String;
+  classYear: Number;
+  username: String;
+  garmentsLent: Number;
+  garmentsBorrowed: Number;
+  garmentsSold: Number;
+  garmentsBought: Number;
+};
+
 export type RootStackParamList = {
   Root: NavigatorScreenParams<RootTabParamList> | undefined;
   Modal: undefined;
