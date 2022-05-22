@@ -15,15 +15,15 @@ declare global {
 }
 
 export type Clothing = {
-  id: Number;
-  sellerId: Number;
-  category: String;
-  offerType: ENUMS.ClothingOfferType;
-  color: Array<ENUMS.ClothingColor>;
-  size: ENUMS.ClothingSize | ENUMS.ClothingPantsSize;
-  description: String;
-  condition: ENUMS.ClothingCondition;
   brand: String;
+  category: String;
+  color: Array<ENUMS.ClothingColor>;
+  condition: ENUMS.ClothingCondition;
+  description: String;
+  id: Number;
+  offerType: ENUMS.ClothingOfferType;
+  sellerId: Number;
+  size: ENUMS.ClothingSize | ENUMS.ClothingPantsSize;
   title: String;
 };
 
