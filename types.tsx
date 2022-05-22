@@ -14,6 +14,11 @@ declare global {
   }
 }
 
+export type Image = {
+  url: String;
+  altText: String;
+}
+
 export type Clothing = {
   brand: String;
   category: String;
@@ -21,6 +26,7 @@ export type Clothing = {
   condition: ENUMS.ClothingCondition;
   description: String;
   id: Number;
+  image: Image;
   offerType: ENUMS.ClothingOfferType;
   sellerId: Number;
   size: ENUMS.ClothingSize | ENUMS.ClothingPantsSize;
