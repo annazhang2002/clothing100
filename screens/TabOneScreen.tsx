@@ -3,13 +3,18 @@ import { StyleSheet } from 'react-native';
 import EditScreenInfo from '../components/EditScreenInfo';
 import { Text, View } from '../components/Themed';
 import ShopItem from '../components/ShopItem';
-import { RootTabScreenProps, Clothing } from '../types';
+import { RootTabScreenProps, Clothing, Image } from '../types';
 import * as ENUMS from '../typeEnums'
 
 export default function TabOneScreen({ navigation }: RootTabScreenProps<'TabOne'>) {
+  const shirtImg: Image = {
+    url: "https://images.fcwholesale.com/TP/6/TP6503-RED-03.jpg",
+    altText: "cool shirt"
+  }
   const shirt: Clothing = {
     title: "A Very Cool Shirt",
     id: 1,
+    image: shirtImg,
     sellerId: 1,
     category: "hi",
     offerType: ENUMS.ClothingOfferType.Borrow,
