@@ -33,6 +33,14 @@ export type Clothing = {
   title: String;
 };
 
+export type Bubble = {
+  name: String;
+  bubbleType: ENUMS.BubbleType;
+  userIds: Array<Number>;
+  adminId: Number;
+  bubbleId: Number;
+}
+
 export type RootStackParamList = {
   Root: NavigatorScreenParams<RootTabParamList> | undefined;
   Modal: undefined;
