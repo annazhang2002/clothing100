@@ -14,16 +14,22 @@ declare global {
   }
 }
 
+export type Image = {
+  url: String;
+  altText: String;
+}
+
 export type Clothing = {
-  id: Number;
-  sellerId: Number;
-  category: String;
-  offerType: ENUMS.ClothingOfferType;
-  color: Array<ENUMS.ClothingColor>;
-  size: ENUMS.ClothingSize | ENUMS.ClothingPantsSize;
-  description: String;
-  condition: ENUMS.ClothingCondition;
   brand: String;
+  category: String;
+  color: Array<ENUMS.ClothingColor>;
+  condition: ENUMS.ClothingCondition;
+  description: String;
+  id: Number;
+  image: Image;
+  offerType: ENUMS.ClothingOfferType;
+  sellerId: Number;
+  size: ENUMS.ClothingSize | ENUMS.ClothingPantsSize;
   title: String;
 };
 
@@ -46,6 +52,15 @@ export type User = {
   userID: Number;
   username: String;
 };
+
+export type Bubble = {
+  adminId: Number;
+  bubbleId: Number;
+  bubblePrivacy: ENUMS.BubblePrivacy;
+  name: String;
+  userIds: Array<Number>;
+}
+
 
 export type RootStackParamList = {
   Root: NavigatorScreenParams<RootTabParamList> | undefined;
