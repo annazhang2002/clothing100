@@ -14,6 +14,19 @@ declare global {
   }
 }
 
+export type Clothing = {
+  id: Number;
+  sellerId: Number;
+  category: String;
+  offerType: ENUMS.ClothingOfferType;
+  color: Array<ENUMS.ClothingColor>;
+  size: ENUMS.ClothingSize | ENUMS.ClothingPantsSize;
+  description: String;
+  condition: ENUMS.ClothingCondition;
+  brand: String;
+  title: String;
+};
+
 export type User = {
   classYear: Number;
   email: String;
@@ -32,19 +45,6 @@ export type User = {
   residentialCollege: String;
   userID: Number;
   username: String;
-};
-
-export type Clothing = {
-  id: Number;
-  sellerId: Number;
-  category: String;
-  offerType: ENUMS.ClothingOfferType;
-  color: Array<ENUMS.ClothingColor>;
-  size: ENUMS.ClothingSize | ENUMS.ClothingPantsSize;
-  description: String;
-  condition: ENUMS.ClothingCondition;
-  brand: String;
-  title: String;
 };
 
 export type RootStackParamList = {
