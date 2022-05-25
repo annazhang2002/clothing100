@@ -41,15 +41,15 @@ export type Bubble = {
   bubbleId: Number;
 }
 
-export type Date = {
-  day: Number;
-  month: Number;
-  year: number;
-};
+// export type Date = {
+//   day: Number;
+//   month: Number;
+//   year: number;
+// };
 
 export type Exchange = {
-  seller: String;
-  buyer: String;
+  seller: Number;
+  buyer: Number;
   date: Date;
   clothingID: Number;
   price: Number;
