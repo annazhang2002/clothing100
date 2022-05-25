@@ -14,15 +14,20 @@ declare global {
 }
 
 export type User = {
-  firstName: String;
-  lastName: String;
-  residentialCollege: String;
   classYear: Number;
+  firstName: String;
+  garmentsBorrowed: Array<Clothing>;
+  garmentsBought: Array<Clothing>;
+  garmentsLent: Array<Clothing>;
+  garmentsSold: Array<Clothing>;
+  lastName: String;
+  numGarmentsBorrowed: Number;
+  numGarmentsBought: Number;
+  numGarmentsLent: Number;
+  numGarmentsSold: Number;
+  residentialCollege: String;
+  userID: Number;
   username: String;
-  garmentsLent: Number;
-  garmentsBorrowed: Number;
-  garmentsSold: Number;
-  garmentsBought: Number;
 };
 
 export type RootStackParamList = {
