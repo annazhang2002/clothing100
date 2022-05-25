@@ -42,14 +42,14 @@ export type User = {
   garmentsLent: Array<Clothing>;
   garmentsSold: Array<Clothing>;
   lastName: String;
-  listBubbles: Array<Bubble>;
-  listFriends: Array<User>; //TODO: Not sure if this will break things
+  listBubbles: Array<BubbleId>;
+  listFriends: Array<UserId>;
   numGarmentsBorrowed: Number;
   numGarmentsBought: Number;
   numGarmentsLent: Number;
   numGarmentsSold: Number;
   residentialCollege: String;
-  userID: Number;
+  userId: Number;
   username: String;
 };
 
