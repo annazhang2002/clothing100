@@ -33,6 +33,26 @@ export type Clothing = {
   title: String;
 };
 
+export type User = {
+  classYear: Number;
+  email: String;
+  firstName: String;
+  garmentsBorrowed: Array<Clothing>;
+  garmentsBought: Array<Clothing>;
+  garmentsLent: Array<Clothing>;
+  garmentsSold: Array<Clothing>;
+  lastName: String;
+  listBubbles: Array<Bubble>;
+  listFriends: Array<User>; //TODO: Not sure if this will break things
+  numGarmentsBorrowed: Number;
+  numGarmentsBought: Number;
+  numGarmentsLent: Number;
+  numGarmentsSold: Number;
+  residentialCollege: String;
+  userID: Number;
+  username: String;
+};
+
 export type Bubble = {
   adminId: Number;
   bubbleId: Number;
@@ -40,6 +60,7 @@ export type Bubble = {
   name: String;
   userIds: Array<Number>;
 }
+
 
 export type RootStackParamList = {
   Root: NavigatorScreenParams<RootTabParamList> | undefined;
