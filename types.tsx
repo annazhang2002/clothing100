@@ -34,11 +34,11 @@ export type Clothing = {
 };
 
 export type Bubble = {
-  name: String;
-  bubbleType: ENUMS.BubbleType;
-  userIds: Array<Number>;
   adminId: Number;
   bubbleId: Number;
+  bubblePrivacy: ENUMS.BubblePrivacy;
+  name: String;
+  userIds: Array<Number>;
 }
 
 export type RootStackParamList = {
