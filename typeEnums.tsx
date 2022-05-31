@@ -45,3 +45,8 @@ export enum ClothingCondition {
     UsedGood,
     UsedFair,
 }
+
+export enum BubbleType {
+    Open,
+    Closed,
+}
