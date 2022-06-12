@@ -5,7 +5,6 @@ import { Text, View } from '../components/Themed';
 
 import { connect } from 'react-redux';
 import { updateName, fetchUser } from '../redux/actions/user';
-import { User } from '../types';
 import { Dispatch } from 'redux';
 import { useEffect } from 'react';
 
@@ -44,11 +43,7 @@ const styles = StyleSheet.create({
   },
 });
 
-type PropsType = {
-  user: User
-}
-
-const mapStateToProps = (state: PropsType) => ({
+const mapStateToProps = (state: any) => ({
   user: state.user,
 });
 
