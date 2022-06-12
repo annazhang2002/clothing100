@@ -1,1 +1,5 @@
-export const UPDATE_NAME = 'UPDATE_NAME'
+export enum USER_ACTIONS {
+    UPDATE_NAME,
+    FETCH_USER,
+    FETCH_USER_ERROR,
+}

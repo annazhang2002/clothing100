@@ -4,17 +4,23 @@ import EditScreenInfo from '../components/EditScreenInfo';
 import { Text, View } from '../components/Themed';
 
 import { connect } from 'react-redux';
-import { updateName } from '../redux/actions/user';
+import { updateName, fetchUser } from '../redux/actions/user';
+import { Dispatch } from 'redux';
+import { useEffect } from 'react';
 
 function TabTwoScreen(props: any) {
   const user = props.user
+
+  useEffect(() => {
+    props.fetchUser(1)
+  })
 
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Tab Two</Text>
       <View style={styles.separator} lightColor="#eee" darkColor="rgba(255,255,255,0.1)" />
       <EditScreenInfo path="/screens/TabTwoScreen.tsx" />
-      <Button title="update name" onPress={() => props.updateName("hi")} />
+      <Button title="update name" onPress={() => props.updateName("Anna", 1)} />
       <Text>My name is {user.name}</Text>
     </View>
   );
@@ -41,12 +47,15 @@ const mapStateToProps = (state: any) => ({
   user: state.user,
 });
 
-const mapDispatchToProps = (dispatch: any) => {
+const mapDispatchToProps = (dispatch: Dispatch<any>) => {
   return {
     // dispatching plain actions
-    updateName: (name: String) => {
-      dispatch(updateName(name))
-    }
+    updateName: (name: String, id: Number) => {
+      dispatch(updateName(name, id))
+    },
+    fetchUser: (id: Number) => {
+      dispatch(fetchUser(id))
+    },
   }
 }
 
