@@ -6,9 +6,15 @@ import { Text, View } from '../components/Themed';
 import { connect } from 'react-redux';
 import { updateName, fetchUser } from '../redux/actions/user';
 import { User } from '../types';
+import { Dispatch } from 'redux';
+import { useEffect } from 'react';
 
 function TabTwoScreen(props: any) {
   const user = props.user
+
+  useEffect(() => {
+    props.fetchUser(2)
+  })
 
   return (
     <View style={styles.container}>
@@ -46,7 +52,7 @@ const mapStateToProps = (state: PropsType) => ({
   user: state.user,
 });
 
-const mapDispatchToProps = (dispatch: any) => {
+const mapDispatchToProps = (dispatch: Dispatch<any>) => {
   return {
     // dispatching plain actions
     updateName: (name: String, id: Number) => {

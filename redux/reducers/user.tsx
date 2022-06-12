@@ -13,6 +13,10 @@ const userReducer = (state = initialState, action: any) => {
         case USER_ACTIONS.FETCH_USER: {
             return action.payload
         }
+        case USER_ACTIONS.FETCH_USER_ERROR: {
+            console.log("ERROR FETCHING USER: ", action.msg)
+            return { ...state, error: action.msg }
+        }
         default: {
             return state;
         }
