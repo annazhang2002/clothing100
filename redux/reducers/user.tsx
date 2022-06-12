@@ -1,4 +1,4 @@
-import { UPDATE_NAME } from "../constants/user";
+import { USER_ACTIONS } from "../constants/user";
 
 const initialState = {
     name: "anna",
@@ -7,8 +7,11 @@ const initialState = {
 
 const userReducer = (state = initialState, action: any) => {
     switch (action.type) {
-        case UPDATE_NAME: {
+        case USER_ACTIONS.UPDATE_NAME: {
             return { ...state, name: action.payload };
+        }
+        case USER_ACTIONS.FETCH_USER: {
+            return action.payload
         }
         default: {
             return state;
