@@ -12,7 +12,7 @@ function TabTwoScreen(props: any) {
   const user = props.user
 
   useEffect(() => {
-    props.fetchUser(2)
+    props.fetchUser(1)
   })
 
   return (
