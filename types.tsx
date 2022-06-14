@@ -58,6 +58,7 @@ export type Bubble = {
   adminId: Number;
   bubbleId: Number;
   bubblePrivacy: ENUMS.BubblePrivacy;
+  color: String;
   name: String;
   userIds: Array<Number>;
 }
