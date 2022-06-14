@@ -1,4 +1,5 @@
 export enum ClothingOfferType {
+
     Borrow,
     Rent,
     Sell,

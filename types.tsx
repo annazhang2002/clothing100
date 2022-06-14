@@ -20,6 +20,7 @@ export type Image = {
 }
 
 export type Clothing = {
+  available: Boolean;
   brand: String;
   category: String;
   color: Array<ENUMS.ClothingColor>;
@@ -60,6 +61,15 @@ export type Bubble = {
   name: String;
   userIds: Array<Number>;
 }
+
+
+export type Exchange = {
+  buyer: Number;
+  clothingID: Number;
+  date: Date;
+  price: Number;
+  seller: Number;
+};
 
 
 export type RootStackParamList = {
