@@ -34,13 +34,34 @@ export type Clothing = {
   title: String;
 };
 
+export type User = {
+  classYear: Number;
+  email: String;
+  firstName: String;
+  garmentsBorrowed: Array<Clothing>;
+  garmentsBought: Array<Clothing>;
+  garmentsLent: Array<Clothing>;
+  garmentsSold: Array<Clothing>;
+  lastName: String;
+  listBubbles: Array<BubbleId>;
+  listFriends: Array<UserId>;
+  numGarmentsBorrowed: Number;
+  numGarmentsBought: Number;
+  numGarmentsLent: Number;
+  numGarmentsSold: Number;
+  residentialCollege: String;
+  userId: Number;
+  username: String;
+};
+
 export type Bubble = {
-  name: String;
-  bubbleType: ENUMS.BubbleType;
-  userIds: Array<Number>;
   adminId: Number;
   bubbleId: Number;
+  bubblePrivacy: ENUMS.BubblePrivacy;
+  name: String;
+  userIds: Array<Number>;
 }
+
 
 export type Exchange = {
   buyer: Number;
@@ -49,6 +70,7 @@ export type Exchange = {
   price: Number;
   seller: Number;
 };
+
 
 export type RootStackParamList = {
   Root: NavigatorScreenParams<RootTabParamList> | undefined;
