@@ -14,8 +14,11 @@ const styles = StyleSheet.create({
         width: 150,
         height: 150,
     },
-    text: {
-        textAlign: "center",
+    baseText: {
+        textAlign: "left",
+    },
+    itemText: {
+        fontWeight: "bold",
     }
 });
 
@@ -30,8 +33,13 @@ export default function ShopItem({ item }: { item: Clothing }) {
                 }}
 
             />
-            <Text style={styles.text}>{item.title} {'\n'}
-                {`${getNameFromUserId(item.sellerId)}`}</Text>
+            <Text style={styles.baseText}>
+                <Text style={styles.itemText}>
+                    {item.title}
+                </Text>
+                {'\n'}
+                {`${getNameFromUserId(item.sellerId)}`}
+            </Text>
         </View>
     )
 }
