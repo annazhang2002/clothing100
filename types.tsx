@@ -14,7 +14,7 @@ declare global {
   }
 }
 
-export type Image = {
+export type ImageType = {
   url: String;
   altText: String;
 }
