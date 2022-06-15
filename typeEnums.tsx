@@ -1,8 +1,14 @@
+export enum BubbleType {
+    Open,
+    Closed,
+}
+
 export enum ClothingOfferType {
 
     Borrow,
     Rent,
     Sell,
+    Lend,
 }
 
 export enum ClothingColor {
@@ -45,9 +51,4 @@ export enum ClothingCondition {
     UsedExcellent,
     UsedGood,
     UsedFair,
-}
-
-export enum BubbleType {
-    Open,
-    Closed,
 }
