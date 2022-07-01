@@ -43,14 +43,14 @@ export type User = {
   garmentsLent: Array<Clothing>;
   garmentsSold: Array<Clothing>;
   lastName: String;
-  listBubbles: Array<BubbleId>;
-  listFriends: Array<UserId>;
+  listBubbles: Array<Number>;
+  listFriends: Array<String>;
   numGarmentsBorrowed: Number;
   numGarmentsBought: Number;
   numGarmentsLent: Number;
   numGarmentsSold: Number;
   residentialCollege: String;
-  userId: Number;
+  userId: String;
   username: String;
 };
 
@@ -76,6 +76,7 @@ export type RootStackParamList = {
   Root: NavigatorScreenParams<RootTabParamList> | undefined;
   Modal: undefined;
   NotFound: undefined;
+  Login: undefined
 };
 
 export type RootStackScreenProps<Screen extends keyof RootStackParamList> = NativeStackScreenProps<

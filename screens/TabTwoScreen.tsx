@@ -50,10 +50,10 @@ const mapStateToProps = (state: any) => ({
 const mapDispatchToProps = (dispatch: Dispatch<any>) => {
   return {
     // dispatching plain actions
-    updateName: (name: String, id: Number) => {
+    updateName: (name: String, id: String) => {
       dispatch(updateName(name, id))
     },
-    fetchUser: (id: Number) => {
+    fetchUser: (id: String) => {
       dispatch(fetchUser(id))
     },
   }

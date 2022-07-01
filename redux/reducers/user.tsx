@@ -1,8 +1,9 @@
 import { USER_ACTIONS } from "../constants/user";
 
 const initialState = {
-    name: "anna",
-    id: 1,
+    name: "",
+    userId: null,
+    error: "",
 };
 
 const userReducer = (state = initialState, action: any) => {
@@ -14,7 +15,14 @@ const userReducer = (state = initialState, action: any) => {
             return action.payload
         }
         case USER_ACTIONS.FETCH_USER_ERROR: {
-            console.log("ERROR FETCHING USER: ", action.msg)
+            // console.log("ERROR FETCHING USER ", action.msg)
+            return { ...state, error: action.msg }
+        }
+        case USER_ACTIONS.CREATE_USER: {
+            return action.payload
+        }
+        case USER_ACTIONS.CREATE_USER_ERROR: {
+            console.log("ERROR CREATING USER ", action.msg)
             return { ...state, error: action.msg }
         }
         default: {
