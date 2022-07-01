@@ -1,0 +1,4 @@
+export enum BUBBLES_ACTIONS {
+    CREATE_BUBBLE,
+    CREATE_BUBBLE_ERROR,
+}
