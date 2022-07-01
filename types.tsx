@@ -26,7 +26,7 @@ export type Clothing = {
   color: Array<ENUMS.ClothingColor>;
   condition: ENUMS.ClothingCondition;
   description: String;
-  id: Number;
+  id: String;
   image: Image;
   offerType: ENUMS.ClothingOfferType;
   sellerId: Number;
@@ -50,14 +50,14 @@ export type User = {
   numGarmentsLent: Number;
   numGarmentsSold: Number;
   residentialCollege: String;
-  userId: Number;
+  userId: String;
   username: String;
 };
 
 export type Bubble = {
   adminId: Number;
-  bubbleId: Number;
-  bubblePrivacy: ENUMS.BubblePrivacy;
+  id: String;
+  privacy: ENUMS.BubblePrivacy;
   color: String;
   name: String;
   userIds: Array<Number>;
@@ -66,7 +66,7 @@ export type Bubble = {
 
 export type Exchange = {
   buyer: Number;
-  clothingID: Number;
+  id: String;
   date: Date;
   price: Number;
   seller: Number;
@@ -88,7 +88,7 @@ export type RootTabParamList = {
   TabOne: undefined;
   TabTwo: undefined;
   TabThree: undefined;
-  TabFour: undefined;
+  BubblesTab: undefined;
   TabFive: undefined;
 };
 

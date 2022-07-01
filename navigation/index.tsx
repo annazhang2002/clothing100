@@ -17,7 +17,7 @@ import NotFoundScreen from '../screens/NotFoundScreen';
 import TabOneScreen from '../screens/TabOneScreen';
 import TabTwoScreen from '../screens/TabTwoScreen';
 import TabThreeScreen from '../screens/TabThreeScreen';
-import TabFourScreen from '../screens/TabFourScreen';
+import BubblesTabScreen from '../screens/BubblesTabScreen';
 import TabFiveScreen from '../screens/TabFiveScreen';
 import { RootStackParamList, RootTabParamList, RootTabScreenProps } from '../types';
 import LinkingConfiguration from './LinkingConfiguration';
@@ -104,10 +104,10 @@ function BottomTabNavigator() {
         }}
       />
       <BottomTab.Screen
-        name="TabFour"
-        component={TabFourScreen}
+        name="BubblesTab"
+        component={BubblesTabScreen}
         options={{
-          title: 'Tab Four',
+          title: 'Bubbles Tab',
           tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
         }}
       />
