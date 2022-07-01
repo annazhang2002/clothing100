@@ -7,7 +7,9 @@ import { fetchUser } from '../redux/actions/user';
 import { connect } from 'react-redux';
 
 function LoginScreen(props: any, ) {
-    const yaleCASLoginUrl = 'https://secure.its.yale.edu/cas/login?'
+    const yaleCASUrl = 'https://secure.its.yale.edu/cas/'
+    const yaleCASLogin = 'login?'
+    const yaleCASValidate = 'serviceValidate?'
     const redirectUrl = 'https://auth.expo.io/@annazhang2002/clothing100app'
 
     const parseTicketFromUrl = (url: String) => {
@@ -24,9 +26,50 @@ function LoginScreen(props: any, ) {
             console.log("successful login!")
             const ticket = parseTicketFromUrl(url)
             if (!props.id) {
-                props.fetchUser(ticket)
+                // props.fetchUser(ticket)
             }
-            props.navigation.navigate('Root')
+            console.log("validate with ticket: ", ticket)
+            console.log("login here", yaleCASUrl + yaleCASValidate + 'service=' + redirectUrl + '&ticket=' + ticket)
+
+            var CASAuthentication = require('node-cas-authentication');
+
+            var app = require('express')();
+            var session = require('express-session');
+
+            // Set up an Express session, which is required for CASAuthentication.
+            app.use(session({
+                secret: 'super secret key',
+                resave: false,
+                saveUninitialized: true
+            }));
+
+            var cas = new CASAuthentication({
+                cas_url: yaleCASUrl + yaleCASValidate + 'service=' + redirectUrl + '&ticket=' + ticket,
+                service_url: redirectUrl,
+                cas_version: '2.0',
+                renew: false,
+                is_dev_mode: false,
+                dev_mode_user: '',
+                dev_mode_info: {},
+                session_name: 'cas_user',
+                session_info: 'cas_userinfo',
+                destroy_session: false,
+                return_to: redirectUrl
+            });
+
+            app.get('/api/user', cas.block, function (req: any, res: any) {
+                res.json({ cas_user: req.session[cas.session_name] });
+            });
+            // fetch(yaleCASUrl + yaleCASValidate + 'service=' + redirectUrl + '&ticket=' + ticket)
+            //     .then((response) => {
+            //         console.log('RESPONSE', response)
+            //     })
+            //     .catch((error) => {
+            //         console.error(error);
+            //     });
+
+
+            // props.navigation.navigate('Root')
         }
     };
 
@@ -35,7 +78,7 @@ function LoginScreen(props: any, ) {
         //     <Text>hello</Text>
         <WebView
             // source={{ uri: 'https://secure.its.yale.edu/cas/login' }}
-            source={{ uri: yaleCASLoginUrl + 'service=' + redirectUrl }}
+            source={{ uri: yaleCASUrl + yaleCASLogin + 'service=' + redirectUrl }}
             onNavigationStateChange={onNavigationStateChange}
         />
         // </View>
