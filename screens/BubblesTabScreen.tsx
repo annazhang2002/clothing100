@@ -1,14 +1,27 @@
-import { StyleSheet } from 'react-native';
+import { StyleSheet, Button } from 'react-native';
 
 import EditScreenInfo from '../components/EditScreenInfo';
 import { Text, View } from '../components/Themed';
+import BubbleComp from '../components/BubbleComp';
+import { testBubble } from '../constants/TestObjects';
+import { Dispatch } from 'redux';
+import { Bubble } from '../types';
+import { createBubble } from '../redux/actions/bubbles';
+import { connect } from 'react-redux';
 
-export default function BubblesTabScreen() {
+function BubblesTabScreen(props: any) {
+    console.log(props)
     return (
         <View style={styles.container}>
             <Text style={styles.title}>Bubbles</Text>
-            <View style={styles.separator} lightColor="#eee" darkColor="rgba(255,255,255,0.1)" />
-            <EditScreenInfo path="/screens/TabFourScreen.tsx" />
+            <Button title="create bubble" onPress={() => props.createBubble(testBubble)} />
+            {props.bubblesIds.map((bubbleId: String) => {
+                console.log(bubbleId)
+                console.log(props.bubblesById)
+                return (
+                    <BubbleComp item={props.bubblesById[bubbleId.toString()]} />
+                )
+            })}
         </View>
     );
 }
@@ -29,3 +42,20 @@ const styles = StyleSheet.create({
         width: '80%',
     },
 });
+
+const mapStateToProps = (state: any) => ({
+    // bubbles: state.bubbles
+    bubblesById: state.bubbles.bubblesById,
+    bubblesIds: state.bubbles.bubblesIds,
+});
+
+const mapDispatchToProps = (dispatch: Dispatch<any>) => {
+    return {
+        // dispatching plain actions
+        createBubble: (newBubble: Bubble) => {
+            dispatch(createBubble(newBubble))
+        },
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(BubblesTabScreen)

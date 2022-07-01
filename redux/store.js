@@ -6,8 +6,7 @@ import thunk from 'redux-thunk';
 const middlewares = [thunk];
 
 const rootReducer = combineReducers(
-    { user: userReducer },
-    { bubbles: bubblesReducer },
+    { user: userReducer, bubbles: bubblesReducer },
 );
 const configureStore = () => {
     return createStore(rootReducer, applyMiddleware(...middlewares));

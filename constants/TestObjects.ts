@@ -40,3 +40,12 @@ export const testClothing: Clothing = {
     condition: ENUMS.ClothingCondition.BrandNew,
     brand: "h",
 }
+
+export const testBubble: Bubble = {
+    adminId: 123,
+    bubbleId: 456,
+    bubblePrivacy: ENUMS.BubblePrivacy.Open,
+    color: 'cyan',
+    name: "Cool Bubble",
+    userIds: [1, 2, 3]
+}

@@ -1,5 +1,5 @@
 import { BUBBLES_ACTIONS } from "../constants/bubbles";
-import _ from 'lodash'
+var _ = require('lodash');
 
 const initialState = {
     bubblesById: {},
@@ -10,9 +10,9 @@ const initialState = {
 const bubblesReducer = (state = initialState, action: any) => {
     switch (action.type) {
         case BUBBLES_ACTIONS.CREATE_BUBBLE: {
-            const id = action.payload.bubble.id
+            const id = action.payload.id
             const bubble = action.payload.bubble
-            return { ...state, bubblesById: _.set(state.bubbles, id, bubble), bubblesIds: _.concat([id], state.bubblesIds) };
+            return { ...state, bubblesById: _.set(state.bubblesById, id, bubble), bubblesIds: _.concat([id], state.bubblesIds) };
         }
         case BUBBLES_ACTIONS.CREATE_BUBBLE_ERROR: {
             console.log("ERROR CREATING BUBBLE: ", action.msg)
