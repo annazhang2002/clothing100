@@ -18,6 +18,13 @@ const bubblesReducer = (state = initialState, action: any) => {
             console.log("ERROR CREATING BUBBLE: ", action.msg)
             return { ...state, error: action.msg }
         }
+        case BUBBLES_ACTIONS.FETCH_BUBBLES: {
+            return { ...state, bubblesById: action.payload.bubblesById, bubblesIds: action.payload.bubblesIds }
+        }
+        case BUBBLES_ACTIONS.FETCH_BUBBLES_ERROR: {
+            console.log("ERROR FETCHING BUBBLES: ", action.msg)
+            return { ...state, error: action.msg }
+        }
         default: {
             return state;
         }
