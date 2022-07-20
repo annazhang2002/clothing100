@@ -5,7 +5,7 @@ import BubbleComp from '../components/BubbleComp';
 import { testBubble } from '../constants/TestObjects';
 import { Dispatch } from 'redux';
 import { Bubble } from '../types';
-import { createBubble, fetchBubbles } from '../redux/actions/bubbles';
+import { createBubble, fetchBubbles, addUserToBubble } from '../redux/actions/bubbles';
 import { connect } from 'react-redux';
 import { useEffect } from 'react';
 
@@ -20,6 +20,7 @@ function BubblesTabScreen(props: any) {
         <View style={styles.container}>
             <Text style={styles.title}>Bubbles</Text>
             <Button title="create bubble" onPress={() => props.createBubble(testBubble)} />
+            <Button title="add user to bubble" onPress={() => props.addUserToBubble(props.bubblesIds[1], 'w1')} />
             {props.bubblesIds.map((bubbleId: String) => {
                 return (
                     <BubbleComp item={props.bubblesById[bubbleId.toString()]} />
@@ -59,6 +60,9 @@ const mapDispatchToProps = (dispatch: Dispatch<any>) => {
         },
         fetchBubbles: (userId: String) => {
             dispatch(fetchBubbles(userId))
+        },
+        addUserToBubble: (bubbleId: String, userId: String) => {
+            dispatch(addUserToBubble(bubbleId, userId))
         },
     }
 }
