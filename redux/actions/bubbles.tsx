@@ -6,6 +6,7 @@ import { Bubble, BubblesById } from "../../types";
 const bubbleRef = firebase.firestore().collection('bubbles')
 
 export const createBubble = (newBubble: Bubble) => {
+    console.log("-----------CREATING BUBBLES----------")
     return (dispatch: Dispatch) => {
         return bubbleRef.add(newBubble)
             .then(res => {
@@ -22,6 +23,7 @@ export const createBubble = (newBubble: Bubble) => {
 
 export const fetchBubbles = (userId: String) => {
     return (dispatch: Dispatch) => {
+        console.log("-----------FETCHING BUBBLES----------")
         return bubbleRef.where('userIds', 'array-contains', userId).orderBy('name', 'desc')
             .onSnapshot(
                 (querySnapshot: any) => {
@@ -33,7 +35,7 @@ export const fetchBubbles = (userId: String) => {
                         bubblesIds.push(bubbleId);
                         bubblesById[bubbleId] = bubbleData
                     });
-                    console.log(querySnapshot)
+                    console.log("why am i here?")
                     console.log(bubblesById)
                     console.log(bubblesIds)
                     dispatch({ type: BUBBLES_ACTIONS.FETCH_BUBBLES, payload: { bubblesById, bubblesIds } })

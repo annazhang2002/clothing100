@@ -11,19 +11,17 @@ import { connect } from 'react-redux';
 import { useEffect } from 'react';
 
 function BubblesTabScreen(props: any) {
-    console.log(props)
 
+    // TODO: this is running when the props update i think? we should try putting it into a higher class
     useEffect(() => {
         props.fetchBubbles('a1')
-    })
+    }, [])
 
     return (
         <View style={styles.container}>
             <Text style={styles.title}>Bubbles</Text>
             <Button title="create bubble" onPress={() => props.createBubble(testBubble)} />
             {props.bubblesIds.map((bubbleId: String) => {
-                console.log(bubbleId)
-                console.log(props.bubblesById)
                 return (
                     <BubbleComp item={props.bubblesById[bubbleId.toString()]} />
                 )
