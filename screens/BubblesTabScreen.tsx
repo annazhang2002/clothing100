@@ -1,6 +1,5 @@
 import { StyleSheet, Button } from 'react-native';
 
-import EditScreenInfo from '../components/EditScreenInfo';
 import { Text, View } from '../components/Themed';
 import BubbleComp from '../components/BubbleComp';
 import { testBubble } from '../constants/TestObjects';

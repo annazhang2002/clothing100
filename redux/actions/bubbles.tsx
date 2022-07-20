@@ -23,10 +23,7 @@ export const createBubble = (newBubble: Bubble) => {
 
 export const fetchBubbles = (userId: String) => {
     return (dispatch: Dispatch) => {
-<<<<<<< HEAD
-=======
         console.log("-----------FETCHING BUBBLES----------")
->>>>>>> a821b41a716ac782edf3089ad8aabd45e440a49d
         return bubbleRef.where('userIds', 'array-contains', userId).orderBy('name', 'desc')
             .onSnapshot(
                 (querySnapshot: any) => {
@@ -38,11 +35,6 @@ export const fetchBubbles = (userId: String) => {
                         bubblesIds.push(bubbleId);
                         bubblesById[bubbleId] = bubbleData
                     });
-<<<<<<< HEAD
-                    console.log(querySnapshot)
-=======
-                    console.log("why am i here?")
->>>>>>> a821b41a716ac782edf3089ad8aabd45e440a49d
                     console.log(bubblesById)
                     console.log(bubblesIds)
                     dispatch({ type: BUBBLES_ACTIONS.FETCH_BUBBLES, payload: { bubblesById, bubblesIds } })
