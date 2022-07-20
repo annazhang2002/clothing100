@@ -4,7 +4,7 @@ import { Dispatch } from 'redux';
 import { Exchange } from "../../types";
 
 
-const exchangeRef = firebase.firestore().collection('exchange')
+const exchangeRef = firebase.firestore().collection('exchanges')
 
 export const createExchange = (newExchange: Exchange) => {
     return (dispatch: Dispatch) => {
