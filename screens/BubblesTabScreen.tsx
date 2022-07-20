@@ -1,4 +1,4 @@
-import { StyleSheet, Button, ScrollView, FlatList } from 'react-native';
+import { StyleSheet, Button, ScrollView, FlatList, TouchableOpacity } from 'react-native';
 
 import { Text, View } from '../components/Themed';
 import BubbleComp from '../components/BubbleComp';
@@ -8,6 +8,8 @@ import { Bubble } from '../types';
 import { createBubble, fetchBubbles, addUserToBubble } from '../redux/actions/bubbles';
 import { connect } from 'react-redux';
 import { useEffect } from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
+import { faPlus } from '@fortawesome/free-solid-svg-icons/faPlus'
 
 function BubblesTabScreen(props: any) {
 
@@ -20,7 +22,14 @@ function BubblesTabScreen(props: any) {
     return (
         <View style={styles.container}>
             <Text style={styles.title}>My Bubbles</Text>
-            <Button title="create bubble" onPress={() => props.createBubble(testBubble)} />
+            <TouchableOpacity
+                activeOpacity={0.5}
+                onPress={() => props.createBubble(testBubble)}
+                style={styles.addButton}
+            >
+                <FontAwesomeIcon icon={faPlus} color={'white'} size={20} />
+            </TouchableOpacity>
+            {/* <Button title="create bubble" onPress={() => props.createBubble(testBubble)} /> */}
             {/* <Button title="add user to bubble" onPress={() => props.addUserToBubble(props.bubblesIds[1], 'w1')} /> */}
             <ScrollView
                 showsVerticalScrollIndicator={false}
@@ -58,6 +67,11 @@ const styles = StyleSheet.create({
         height: 1,
         width: '80%',
     },
+    addButton: {
+        position: 'absolute',
+        top: 20,
+        right: 20,
+    }
 });
 
 const mapStateToProps = (state: any) => ({
