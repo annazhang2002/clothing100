@@ -1,4 +1,4 @@
-import { User, Clothing, Image, Bubble, Exchange } from '../types'
+import { User, Clothing, Image, Bubble } from '../types'
 import * as ENUMS from '../typeEnums'
 
 export const testUser: User = {
@@ -17,7 +17,7 @@ export const testUser: User = {
     numGarmentsLent: 0,
     numGarmentsSold: 0,
     residentialCollege: 'Ezra Stiles',
-    userId: 1,
+    userId: 'a1',
     username: 'anna'
 }
 
@@ -43,10 +43,11 @@ export const testClothing: Clothing = {
 
 export const testBubble: Bubble = {
     adminId: 123,
-    bubbleId: 456,
-    bubblePrivacy: ENUMS.BubblePrivacy.Open,
+    id: '456',
+    privacy: ENUMS.BubblePrivacy.Open,
     color: 'cyan',
     name: "Cool Bubble",
+<<<<<<< HEAD
     userIds: [1, 2, 3]
 }
 
@@ -56,4 +57,7 @@ export const testExchange: Exchange = {
     date: new Date(),
     price: 10.99,
     seller: 23450
+=======
+    userIds: ['a1', 'b2', 'c3']
+>>>>>>> 817d7a3d25b23a954ffd65f1a727f8ebfde52aeb
 }

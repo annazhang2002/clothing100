@@ -11,9 +11,9 @@ import { useEffect } from 'react';
 function TabTwoScreen(props: any) {
   const user = props.user
 
-  useEffect(() => {
-    props.fetchUser(1)
-  })
+  // useEffect(() => {
+  //   props.fetchUser(1)
+  // })
 
   return (
     <View style={styles.container}>

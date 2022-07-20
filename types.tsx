@@ -60,9 +60,12 @@ export type Bubble = {
   privacy: ENUMS.BubblePrivacy;
   color: String;
   name: String;
-  userIds: Array<Number>;
+  userIds: Array<String>;
 }
 
+export type BubblesById = {
+  [key: string]: Bubble;
+}
 
 export type Exchange = {
   buyer: Number;
