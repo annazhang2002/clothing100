@@ -1,4 +1,4 @@
-import { StyleSheet, Button } from 'react-native';
+import { StyleSheet, Button, ScrollView, FlatList } from 'react-native';
 
 import { Text, View } from '../components/Themed';
 import BubbleComp from '../components/BubbleComp';
@@ -14,18 +14,30 @@ function BubblesTabScreen(props: any) {
     // TODO: this is running when the props update i think? we should try putting it into a higher class
     useEffect(() => {
         props.fetchBubbles('a1')
+        // console.log(props.bubblesIds)
     }, [])
 
     return (
         <View style={styles.container}>
-            <Text style={styles.title}>Bubbles</Text>
+            <Text style={styles.title}>My Bubbles</Text>
             <Button title="create bubble" onPress={() => props.createBubble(testBubble)} />
-            <Button title="add user to bubble" onPress={() => props.addUserToBubble(props.bubblesIds[1], 'w1')} />
-            {props.bubblesIds.map((bubbleId: String) => {
-                return (
-                    <BubbleComp item={props.bubblesById[bubbleId.toString()]} />
-                )
-            })}
+            {/* <Button title="add user to bubble" onPress={() => props.addUserToBubble(props.bubblesIds[1], 'w1')} /> */}
+            <ScrollView
+                showsVerticalScrollIndicator={false}
+                showsHorizontalScrollIndicator={false}
+                contentContainerStyle={{
+                    flexDirection: 'row',
+                    flexWrap: 'wrap',
+                }}>
+                <FlatList
+                    data={props.bubblesIds}
+                    // renderItem={({ item }) => (<Text>{item}</Text>)}
+                    renderItem={({ item }) => (<BubbleComp item={props.bubblesById[item.toString()]} />)}
+                    keyExtractor={item => `${item}`}
+                    showsHorizontalScrollIndicator={false}
+                    numColumns={2}
+                />
+            </ScrollView>
         </View>
     );
 }
@@ -35,6 +47,7 @@ const styles = StyleSheet.create({
         flex: 1,
         alignItems: 'center',
         justifyContent: 'center',
+        padding: 20
     },
     title: {
         fontSize: 20,
