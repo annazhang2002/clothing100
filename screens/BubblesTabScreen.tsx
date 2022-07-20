@@ -6,18 +6,22 @@ import BubbleComp from '../components/BubbleComp';
 import { testBubble } from '../constants/TestObjects';
 import { Dispatch } from 'redux';
 import { Bubble } from '../types';
-import { createBubble } from '../redux/actions/bubbles';
+import { createBubble, fetchBubbles } from '../redux/actions/bubbles';
 import { connect } from 'react-redux';
+import { useEffect } from 'react';
 
 function BubblesTabScreen(props: any) {
-    console.log(props)
+
+    // TODO: this is running when the props update i think? we should try putting it into a higher class
+    useEffect(() => {
+        props.fetchBubbles('a1')
+    }, [])
+
     return (
         <View style={styles.container}>
             <Text style={styles.title}>Bubbles</Text>
             <Button title="create bubble" onPress={() => props.createBubble(testBubble)} />
             {props.bubblesIds.map((bubbleId: String) => {
-                console.log(bubbleId)
-                console.log(props.bubblesById)
                 return (
                     <BubbleComp item={props.bubblesById[bubbleId.toString()]} />
                 )
@@ -44,7 +48,6 @@ const styles = StyleSheet.create({
 });
 
 const mapStateToProps = (state: any) => ({
-    // bubbles: state.bubbles
     bubblesById: state.bubbles.bubblesById,
     bubblesIds: state.bubbles.bubblesIds,
 });
@@ -54,6 +57,9 @@ const mapDispatchToProps = (dispatch: Dispatch<any>) => {
         // dispatching plain actions
         createBubble: (newBubble: Bubble) => {
             dispatch(createBubble(newBubble))
+        },
+        fetchBubbles: (userId: String) => {
+            dispatch(fetchBubbles(userId))
         },
     }
 }
