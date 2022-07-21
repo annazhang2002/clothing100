@@ -45,10 +45,10 @@ const mapStateToProps = (state: any) => ({
 
 const mapDispatchToProps = (dispatch: Dispatch<any>) => {
   return {
-      // dispatching plain actions
-      createBubble: (newExchange: Exchange) => {
-          dispatch(createExchange(newExchange))
-      }
+    // dispatching plain actions
+    createExchange: (newExchange: Exchange) => {
+      dispatch(createExchange(newExchange))
+    }
   }
 }
 
