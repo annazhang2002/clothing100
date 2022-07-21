@@ -43,8 +43,8 @@ export type User = {
   garmentsLent: Array<Clothing>;
   garmentsSold: Array<Clothing>;
   lastName: String;
-  listBubbles: Array<BubbleId>;
-  listFriends: Array<UserId>;
+  listBubbles: Array<String>;
+  listFriends: Array<String>;
   numGarmentsBorrowed: Number;
   numGarmentsBought: Number;
   numGarmentsLent: Number;
@@ -90,7 +90,7 @@ export type RootStackScreenProps<Screen extends keyof RootStackParamList> = Nati
 export type RootTabParamList = {
   TabOne: undefined;
   TabTwo: undefined;
-  TabThree: undefined;
+  ExchangeTab: undefined;
   BubblesTab: undefined;
   TabFive: undefined;
 };

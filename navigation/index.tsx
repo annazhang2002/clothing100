@@ -16,7 +16,7 @@ import ModalScreen from '../screens/ModalScreen';
 import NotFoundScreen from '../screens/NotFoundScreen';
 import TabOneScreen from '../screens/TabOneScreen';
 import TabTwoScreen from '../screens/TabTwoScreen';
-import TabThreeScreen from '../screens/TabThreeScreen';
+import ExchangeTabScreen from '../screens/ExchangeTabScreen';
 import BubblesTabScreen from '../screens/BubblesTabScreen';
 import TabFiveScreen from '../screens/TabFiveScreen';
 import { RootStackParamList, RootTabParamList, RootTabScreenProps } from '../types';
@@ -96,10 +96,10 @@ function BottomTabNavigator() {
         }}
       />
       <BottomTab.Screen
-        name="TabThree"
-        component={TabThreeScreen}
+        name="ExchangeTab"
+        component={ExchangeTabScreen}
         options={{
-          title: 'Tab Three',
+          title: 'Tab Exchange',
           tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
         }}
       />
