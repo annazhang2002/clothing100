@@ -25,6 +25,7 @@ export type Clothing = {
   category: String;
   color: Array<ENUMS.ClothingColor>;
   condition: ENUMS.ClothingCondition;
+  datePosted: Date;
   description: String;
   id: String;
   image: Image;
@@ -65,6 +66,10 @@ export type Bubble = {
 
 export type BubblesById = {
   [key: string]: Bubble;
+}
+
+export type ClothesById = {
+  [key: string]: Clothing;
 }
 
 export type Exchange = {

@@ -28,11 +28,12 @@ export const testImg: Image = {
 
 export const testClothing: Clothing = {
     available: true,
-    title: "A Very Cool Shirt",
+    title: "A Cool Shirt",
     id: "abc",
     image: testImg,
     sellerId: 1,
     category: "hi",
+    datePosted: new Date(),
     offerType: ENUMS.ClothingOfferType.Borrow,
     color: [ENUMS.ClothingColor.Black],
     size: ENUMS.ClothingSize.L,

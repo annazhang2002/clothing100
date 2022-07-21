@@ -19,6 +19,13 @@ const clothesReducer = (state = initialState, action: any) => {
             console.log("ERROR ADDING CLOTHING: ", action.msg)
             return { ...state, error: action.msg }
         }
+        case CLOTHING_ACTIONS.FETCH_CLOTHING: {
+            return { ...state, clothesById: action.payload.clothesById, clothesIds: action.payload.clothesIds }
+        }
+        case CLOTHING_ACTIONS.FETCH_CLOTHING_ERROR: {
+            console.log("ERROR FETCHING BUBBLES: ", action.msg)
+            return { ...state, error: action.msg }
+        }
         default: {
             return state;
         }
