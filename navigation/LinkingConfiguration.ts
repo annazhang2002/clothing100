@@ -25,14 +25,14 @@ const linking: LinkingOptions<RootStackParamList> = {
               TabTwoScreen: 'two',
             },
           },
-          TabThree: {
+          ExchangeTab: {
             screens: {
-              TabThreeScreen: 'three',
+              ExchangeTabScreen: 'three',
             },
           },
-          TabFour: {
+          BubblesTab: {
             screens: {
-              TabFourScreen: 'four',
+              BubblesTabScreen: 'four',
             },
           },
           TabFive: {

@@ -20,12 +20,13 @@ export type Image = {
 }
 
 export type Clothing = {
+  available: Boolean;
   brand: String;
   category: String;
   color: Array<ENUMS.ClothingColor>;
   condition: ENUMS.ClothingCondition;
   description: String;
-  id: Number;
+  id: String;
   image: Image;
   offerType: ENUMS.ClothingOfferType;
   sellerId: Number;
@@ -42,24 +43,37 @@ export type User = {
   garmentsLent: Array<Clothing>;
   garmentsSold: Array<Clothing>;
   lastName: String;
-  listBubbles: Array<BubbleId>;
-  listFriends: Array<UserId>;
+  listBubbles: Array<String>;
+  listFriends: Array<String>;
   numGarmentsBorrowed: Number;
   numGarmentsBought: Number;
   numGarmentsLent: Number;
   numGarmentsSold: Number;
   residentialCollege: String;
-  userId: Number;
+  userId: String;
   username: String;
 };
 
 export type Bubble = {
   adminId: Number;
-  bubbleId: Number;
-  bubblePrivacy: ENUMS.BubblePrivacy;
+  id: String;
+  privacy: ENUMS.BubblePrivacy;
+  color: String;
   name: String;
-  userIds: Array<Number>;
+  userIds: Array<String>;
 }
+
+export type BubblesById = {
+  [key: string]: Bubble;
+}
+
+export type Exchange = {
+  buyer: Number;
+  id: String;
+  date: Date;
+  price: Number;
+  seller: Number;
+};
 
 
 export type RootStackParamList = {
@@ -74,10 +88,10 @@ export type RootStackScreenProps<Screen extends keyof RootStackParamList> = Nati
 >;
 
 export type RootTabParamList = {
-  TabOne: undefined;
+  ClothingFeedTab: undefined;
   TabTwo: undefined;
-  TabThree: undefined;
-  TabFour: undefined;
+  ExchangeTab: undefined;
+  BubblesTab: undefined;
   TabFive: undefined;
 };
 

@@ -1,4 +1,5 @@
 export enum ClothingOfferType {
+
     Borrow,
     Rent,
     Sell,
@@ -46,7 +47,7 @@ export enum ClothingCondition {
     UsedFair,
 }
 
-export enum BubbleType {
+export enum BubblePrivacy {
     Open,
     Closed,
 }
