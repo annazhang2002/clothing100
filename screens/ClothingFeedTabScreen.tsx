@@ -6,6 +6,7 @@ import { Dispatch } from 'redux';
 import { connect } from 'react-redux';
 import { addClothing } from '../redux/actions/clothes';
 import { testClothing } from '../constants/TestObjects';
+import ShopItem from '../components/ShopItem';
 
 function ClothingFeedTabScreen(props: any) {
 
@@ -13,6 +14,7 @@ function ClothingFeedTabScreen(props: any) {
     <View style={styles.container}>
       <Text style={styles.title}>Clothing Test</Text>
       <View style={styles.separator} lightColor="#eee" darkColor="rgba(255,255,255,0.1)" />
+      <ShopItem item={testClothing} />
       <Button title="create clothing item" onPress={() => props.addClothingItem(testClothing)} />
     </View>
   );

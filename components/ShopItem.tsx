@@ -3,26 +3,6 @@ import { View, Text } from "./Themed";
 import React from 'react';
 import { Image, StyleSheet } from 'react-native';
 
-
-// const s = require('./style');
-
-const styles = StyleSheet.create({
-    container: {
-        paddingTop: 50,
-    },
-    thumbnail: {
-        width: 150,
-        height: 150,
-    },
-    baseText: {
-        textAlign: "left",
-    },
-    itemText: {
-        fontWeight: "bold",
-    }
-});
-
-
 export default function ShopItem({ item }: { item: Clothing }) {
     return (
         <View style={styles.container}>
@@ -50,3 +30,19 @@ export default function ShopItem({ item }: { item: Clothing }) {
 function getNameFromUserId(id: Number): string {
     return "Jane Doe";
 }
+
+const styles = StyleSheet.create({
+    container: {
+        paddingTop: 50,
+    },
+    thumbnail: {
+        width: 150,
+        height: 150,
+    },
+    baseText: {
+        textAlign: "left",
+    },
+    itemText: {
+        fontWeight: "bold",
+    }
+});
